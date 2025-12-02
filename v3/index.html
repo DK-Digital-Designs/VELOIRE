@@ -1,0 +1,463 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELOIRE | The Apex of Luxury</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Config & Custom Styles -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#050505',
+                            charcoal: '#0a0a0a',
+                            gold: '#D4AF37',
+                            goldlight: '#F4CF57',
+                            silver: '#C0C0C0',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Cinzel', 'serif'],
+                        body: ['Montserrat', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Reset & Typography */
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+
+        /* Animations */
+        .reveal-text {
+            animation: slideUpFade 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+
+        @keyframes slideUpFade {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Image Hover Effects */
+        .car-card:hover .car-img {
+            transform: scale(1.05);
+        }
+        .car-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, #050505 0%, transparent 60%);
+            z-index: 10;
+        }
+
+        /* Gold Glow */
+        .glow-gold {
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Loader */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease-out;
+        }
+
+        .loader-line {
+            width: 0%;
+            height: 2px;
+            background: #D4AF37;
+            animation: loadLine 1.5s ease-in-out forwards;
+        }
+
+        @keyframes loadLine {
+            to { width: 200px; }
+        }
+
+        /* Navigation Frosted Glass */
+        .nav-scrolled {
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+<!-- Loading Screen -->
+<div id="loader">
+    <div class="flex flex-col items-center gap-4">
+        <h1 class="text-3xl text-brand-gold tracking-[0.5em] font-light">VELOIRE</h1>
+        <div class="loader-line"></div>
+    </div>
+</div>
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6 px-6 md:px-12 flex justify-between items-center">
+    <div class="flex items-center gap-2 cursor-pointer group">
+        <span class="text-2xl font-heading font-bold tracking-widest text-white group-hover:text-brand-gold transition-colors duration-300">VELOIRE</span>
+    </div>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-12 text-sm font-light tracking-widest text-gray-300">
+        <a href="#fleet" class="hover:text-white transition-colors">THE FLEET</a>
+        <a href="#services" class="hover:text-white transition-colors">CONCIERGE</a>
+        <a href="#membership" class="hover:text-white transition-colors">MEMBERSHIP</a>
+        <button class="border border-brand-gold/30 text-brand-gold px-6 py-2 hover:bg-brand-gold hover:text-black transition-all duration-300">
+            INQUIRE
+        </button>
+    </div>
+
+    <!-- Mobile Menu Icon -->
+    <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+    </button>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="fixed inset-0 bg-brand-black z-40 transform translate-x-full transition-transform duration-500 flex flex-col justify-center items-center gap-8">
+    <button class="absolute top-6 right-6 text-white" onclick="toggleMobileMenu()">
+        <i data-lucide="x" class="w-8 h-8"></i>
+    </button>
+    <a href="#fleet" onclick="toggleMobileMenu()" class="text-2xl font-heading text-white hover:text-brand-gold">THE FLEET</a>
+    <a href="#services" onclick="toggleMobileMenu()" class="text-2xl font-heading text-white hover:text-brand-gold">CONCIERGE</a>
+    <a href="#membership" onclick="toggleMobileMenu()" class="text-2xl font-heading text-white hover:text-brand-gold">MEMBERSHIP</a>
+</div>
+
+<!-- Hero Section -->
+<header class="relative h-screen w-full overflow-hidden flex items-center justify-center">
+    <!-- Hero Background Image (Dark Moody Car) -->
+    <div class="absolute inset-0 z-0">
+        <img
+                src="https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=2070&auto=format&fit=crop"
+                alt="Luxury Dark Car"
+                class="w-full h-full object-cover opacity-60"
+        >
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-black/30 via-transparent to-brand-black"></div>
+    </div>
+
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+        <p class="text-brand-gold tracking-[0.4em] text-sm md:text-base mb-4 reveal-text delay-100 font-medium">EST. MMXXIV</p>
+        <h1 class="text-5xl md:text-8xl lg:text-9xl font-heading font-bold text-white mb-6 reveal-text delay-200 glow-gold">
+            ASCEND TO <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-500">VELOCITY</span>
+        </h1>
+        <p class="text-gray-300 font-light text-lg md:text-xl tracking-wide max-w-2xl mx-auto reveal-text delay-300">
+            Curated machinery for the distinguished driver. Experience the extraordinary.
+        </p>
+
+        <div class="mt-12 reveal-text delay-300 flex flex-col md:flex-row gap-6 justify-center items-center">
+            <a href="#fleet" class="group relative px-8 py-3 bg-white text-black font-semibold tracking-widest overflow-hidden">
+                <span class="relative z-10 group-hover:text-white transition-colors duration-300">VIEW COLLECTION</span>
+                <div class="absolute inset-0 bg-brand-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <i data-lucide="chevron-down" class="text-white/50 w-6 h-6"></i>
+    </div>
+</header>
+
+<!-- Stats Section -->
+<section class="py-20 bg-brand-black border-y border-white/5">
+    <div class="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+            <h3 class="text-3xl md:text-4xl font-heading text-brand-gold mb-2">50+</h3>
+            <p class="text-gray-500 text-xs tracking-widest uppercase">Exotic Models</p>
+        </div>
+        <div>
+            <h3 class="text-3xl md:text-4xl font-heading text-brand-gold mb-2">24/7</h3>
+            <p class="text-gray-500 text-xs tracking-widest uppercase">Concierge</p>
+        </div>
+        <div>
+            <h3 class="text-3xl md:text-4xl font-heading text-brand-gold mb-2">0</h3>
+            <p class="text-gray-500 text-xs tracking-widest uppercase">Compromises</p>
+        </div>
+        <div>
+            <h3 class="text-3xl md:text-4xl font-heading text-brand-gold mb-2">Global</h3>
+            <p class="text-gray-500 text-xs tracking-widest uppercase">Access</p>
+        </div>
+    </div>
+</section>
+
+<!-- The Fleet Section -->
+<section id="fleet" class="py-24 bg-brand-charcoal relative">
+    <div class="container mx-auto px-6 mb-16 flex justify-between items-end">
+        <div>
+            <h2 class="text-4xl md:text-5xl text-white mb-2">THE <span class="text-brand-gold font-serif italic">COLLECTION</span></h2>
+            <div class="h-1 w-20 bg-brand-gold mt-4"></div>
+        </div>
+        <a href="#" class="hidden md:flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm tracking-widest">
+            VIEW FULL INVENTORY <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+    </div>
+
+    <!-- Horizontal Scroll Container -->
+    <div class="overflow-x-auto pb-12 px-6 no-scrollbar flex gap-6 md:gap-8 snap-x snap-mandatory">
+
+        <!-- Card 1: Rolls Royce -->
+        <div class="min-w-[85vw] md:min-w-[400px] lg:min-w-[500px] snap-center car-card relative group cursor-pointer">
+            <div class="h-[60vh] overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1631295868223-63260951cb11?q=80&w=2660&auto=format&fit=crop" alt="Rolls Royce" class="car-img w-full h-full object-cover transition-transform duration-700">
+            </div>
+            <div class="absolute bottom-0 left-0 w-full p-8 z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <p class="text-brand-gold text-xs tracking-[0.2em] mb-2 uppercase">Grand Tourer</p>
+                <h3 class="text-3xl font-heading text-white mb-4">Rolls-Royce Spectre</h3>
+                <div class="flex items-center justify-between border-t border-white/20 pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                    <span class="text-sm text-gray-300">$1,800 / Day</span>
+                    <span class="text-white text-xs border border-white px-3 py-1">RESERVE</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Lamborghini -->
+        <div class="min-w-[85vw] md:min-w-[400px] lg:min-w-[500px] snap-center car-card relative group cursor-pointer">
+            <div class="h-[60vh] overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=2574&auto=format&fit=crop" alt="Lamborghini" class="car-img w-full h-full object-cover transition-transform duration-700">
+            </div>
+            <div class="absolute bottom-0 left-0 w-full p-8 z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <p class="text-brand-gold text-xs tracking-[0.2em] mb-2 uppercase">Super Sport</p>
+                <h3 class="text-3xl font-heading text-white mb-4">Lamborghini Aventador</h3>
+                <div class="flex items-center justify-between border-t border-white/20 pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                    <span class="text-sm text-gray-300">$2,200 / Day</span>
+                    <span class="text-white text-xs border border-white px-3 py-1">RESERVE</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: Porsche -->
+        <div class="min-w-[85vw] md:min-w-[400px] lg:min-w-[500px] snap-center car-card relative group cursor-pointer">
+            <div class="h-[60vh] overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1503376763036-066120622c74?q=80&w=2670&auto=format&fit=crop" alt="Porsche" class="car-img w-full h-full object-cover transition-transform duration-700">
+            </div>
+            <div class="absolute bottom-0 left-0 w-full p-8 z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <p class="text-brand-gold text-xs tracking-[0.2em] mb-2 uppercase">Track Precision</p>
+                <h3 class="text-3xl font-heading text-white mb-4">Porsche 911 GT3 RS</h3>
+                <div class="flex items-center justify-between border-t border-white/20 pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                    <span class="text-sm text-gray-300">$1,500 / Day</span>
+                    <span class="text-white text-xs border border-white px-3 py-1">RESERVE</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4: Aston Martin -->
+        <div class="min-w-[85vw] md:min-w-[400px] lg:min-w-[500px] snap-center car-card relative group cursor-pointer">
+            <div class="h-[60vh] overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1600712242805-5f78671d2432?q=80&w=2564&auto=format&fit=crop" alt="Aston Martin" class="car-img w-full h-full object-cover transition-transform duration-700">
+            </div>
+            <div class="absolute bottom-0 left-0 w-full p-8 z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <p class="text-brand-gold text-xs tracking-[0.2em] mb-2 uppercase">British Elegance</p>
+                <h3 class="text-3xl font-heading text-white mb-4">Aston Martin DBS</h3>
+                <div class="flex items-center justify-between border-t border-white/20 pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                    <span class="text-sm text-gray-300">$1,950 / Day</span>
+                    <span class="text-white text-xs border border-white px-3 py-1">RESERVE</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Services / Feature Section -->
+<section id="services" class="py-24 bg-brand-black text-white">
+    <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div class="relative">
+                <div class="absolute -top-10 -left-10 w-24 h-24 border-t border-l border-brand-gold/30"></div>
+                <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=2070&auto=format&fit=crop" alt="Interior" class="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl">
+                <div class="absolute -bottom-10 -right-10 w-24 h-24 border-b border-r border-brand-gold/30"></div>
+            </div>
+
+            <div class="space-y-8">
+                <h2 class="text-4xl md:text-5xl font-heading leading-tight">SERVICE BEYOND <br><span class="text-brand-gold">EXPECTATION</span></h2>
+                <p class="text-gray-400 font-light leading-relaxed">
+                    At VELOIRE, the vehicle is merely the vessel. The experience is our product. From white-glove delivery to bespoke itinerary planning, we ensure your journey is as seamless as it is exhilarating.
+                </p>
+
+                <div class="grid gap-6">
+                    <div class="flex items-start gap-4">
+                        <div class="p-3 bg-white/5 rounded-full text-brand-gold">
+                            <i data-lucide="key" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-heading mb-1">Door-to-Door Delivery</h4>
+                            <p class="text-sm text-gray-500">We bring the fleet to you, anywhere in the city.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="p-3 bg-white/5 rounded-full text-brand-gold">
+                            <i data-lucide="shield-check" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-heading mb-1">Comprehensive Insurance</h4>
+                            <p class="text-sm text-gray-500">Full coverage for peace of mind at 200mph.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="p-3 bg-white/5 rounded-full text-brand-gold">
+                            <i data-lucide="gem" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-heading mb-1">Private Concierge</h4>
+                            <p class="text-sm text-gray-500">24/7 support for reservations and requests.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Membership CTA -->
+<section id="membership" class="relative py-32 flex items-center justify-center bg-fixed bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop');">
+    <div class="absolute inset-0 bg-black/80"></div>
+    <div class="relative z-10 text-center px-6 max-w-3xl">
+        <h2 class="text-4xl md:text-6xl font-heading text-white mb-6">THE <span class="text-brand-gold">VELOIRE</span> CLUB</h2>
+        <p class="text-gray-300 text-lg mb-10 font-light">
+            Unlock exclusive access to our hypercar tier, priority booking, and invitation-only driving events.
+        </p>
+        <form class="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
+            <input type="email" placeholder="Your Email Address" class="bg-transparent border border-white/30 text-white px-6 py-3 w-full focus:outline-none focus:border-brand-gold transition-colors placeholder:text-gray-500">
+            <button type="submit" class="bg-brand-gold text-black px-8 py-3 font-semibold hover:bg-white transition-colors duration-300">
+                APPLY
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-brand-black pt-20 pb-10 border-t border-white/10">
+    <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
+            <div>
+                <h2 class="text-3xl font-heading font-bold text-white mb-6">VELOIRE</h2>
+                <p class="text-gray-500 max-w-xs text-sm">
+                    Redefining luxury mobility for the modern era. <br>
+                    New York • London • Dubai • Monaco
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-12 text-sm text-gray-400">
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-white font-heading">Company</h4>
+                    <a href="#" class="hover:text-brand-gold transition-colors">About</a>
+                    <a href="#" class="hover:text-brand-gold transition-colors">Careers</a>
+                    <a href="#" class="hover:text-brand-gold transition-colors">Press</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-white font-heading">Legal</h4>
+                    <a href="#" class="hover:text-brand-gold transition-colors">Terms</a>
+                    <a href="#" class="hover:text-brand-gold transition-colors">Privacy</a>
+                    <a href="#" class="hover:text-brand-gold transition-colors">Insurance</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <h4 class="text-white font-heading">Social</h4>
+                    <a href="#" class="hover:text-brand-gold transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-brand-gold transition-colors">LinkedIn</a>
+                    <a href="#" class="hover:text-brand-gold transition-colors">Twitter</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10 text-xs text-gray-600">
+            <p>&copy; 2024 VELOIRE Luxury Rentals. All rights reserved.</p>
+            <p class="mt-2 md:mt-0">Design V3 Concept.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script>
+    // Initialize Icons
+    lucide.createIcons();
+
+    // Loader
+    window.addEventListener('load', () => {
+        const loader = document.getElementById('loader');
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 800);
+        }, 1500);
+    });
+
+    // Navbar Scroll Effect
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+            nav.classList.add('nav-scrolled', 'py-4');
+            nav.classList.remove('py-6');
+        } else {
+            nav.classList.remove('nav-scrolled', 'py-4');
+            nav.classList.add('py-6');
+        }
+    });
+
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        if (menu.classList.contains('translate-x-full')) {
+            menu.classList.remove('translate-x-full');
+        } else {
+            menu.classList.add('translate-x-full');
+        }
+    }
+</script>
+</body>
+</html>

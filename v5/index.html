@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VELOIRE — Private Luxury Car Rentals</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="VELOIRE offers discreet, invitation-only luxury and supercar rentals with concierge-level service.">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+    <div class="header__inner container">
+        <div class="logo">
+            <span class="logo__mark"></span>
+            <span class="logo__text">VELOIRE</span>
+        </div>
+        <nav class="nav">
+            <a href="#fleet">Fleet</a>
+            <a href="#experience">Experience</a>
+            <a href="#membership">Membership</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <a href="#contact" class="btn btn--primary header__cta">Request Access</a>
+    </div>
+</header>
+
+<main>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero__media"></div>
+        <div class="hero__overlay"></div>
+        <div class="hero__content container">
+            <div class="hero__copy">
+                <p class="eyebrow">PRIVATE LUXURY CAR RENTALS</p>
+                <h1>Keys to the city, <span class="text-gradient">on your terms.</span></h1>
+                <p class="hero__lede">
+                    VELOIRE curates an invitation-only fleet of supercars and executive SUVs,
+                    delivered to your door with white-glove concierge service.
+                </p>
+                <div class="hero__meta">
+                    <span class="pill">Discreet handovers</span>
+                    <span class="pill">Chauffeur or self-drive</span>
+                    <span class="pill">24/7 concierge</span>
+                </div>
+                <div class="hero__badges">
+                    <div class="hero-badge">
+                        <span class="hero-badge__label">From</span>
+                        <span class="hero-badge__value">R&nbsp;9&nbsp;500</span>
+                        <span class="hero-badge__note">per day, fully insured</span>
+                    </div>
+                    <div class="hero-badge">
+                        <span class="hero-badge__label">Lead time</span>
+                        <span class="hero-badge__value">3–24h</span>
+                        <span class="hero-badge__note">subject to availability</span>
+                    </div>
+                </div>
+            </div>
+
+            <form class="hero-form" id="instant-enquiry">
+                <div class="hero-form__header">
+                    <h2>Instant enquiry</h2>
+                    <p>Share the basics. A concierge will respond with options.</p>
+                </div>
+                <div class="field-group">
+                    <label for="city">City</label>
+                    <select id="city" name="city">
+                        <option>Johannesburg</option>
+                        <option>Cape Town</option>
+                        <option>Durban</option>
+                        <option>Pretoria</option>
+                    </select>
+                </div>
+                <div class="field-group field-group--inline">
+                    <div class="field">
+                        <label for="start-date">From</label>
+                        <input type="date" id="start-date" name="start-date">
+                    </div>
+                    <div class="field">
+                        <label for="end-date">To</label>
+                        <input type="date" id="end-date" name="end-date">
+                    </div>
+                </div>
+                <div class="field-group field-group--inline">
+                    <div class="field">
+                        <label for="vehicle-type">Vehicle</label>
+                        <select id="vehicle-type" name="vehicle-type">
+                            <option>Supercar</option>
+                            <option>Luxury SUV</option>
+                            <option>Executive Sedan</option>
+                            <option>Chauffeur Transfer</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="purpose">Purpose</label>
+                        <select id="purpose" name="purpose">
+                            <option>Business</option>
+                            <option>Leisure</option>
+                            <option>Event / Red Carpet</option>
+                            <option>Wedding</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="field-group">
+                    <label for="contact">WhatsApp / Phone</label>
+                    <input type="tel" id="contact" name="contact" placeholder="+27…">
+                </div>
+                <button type="submit" class="btn btn--primary btn--full">Request a curated shortlist</button>
+                <p class="hero-form__note">No payment at this stage. A concierge will confirm availability and rates.</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- FLEET -->
+    <section class="section" id="fleet">
+        <div class="section__header container">
+            <p class="eyebrow">SIGNATURE FLEET</p>
+            <div class="section__header-main">
+                <h2>Every car earns its place.</h2>
+                <p>
+                    Hand-picked metal only. Impeccable service history, obsessive detailing,
+                    and performance that matches the badge.
+                </p>
+            </div>
+        </div>
+
+        <div class="fleet-grid container">
+            <article class="card fleet-card">
+                <div class="card__media card__media--gradient">
+                    <span class="fleet-tier">Flagship</span>
+                    <span class="fleet-tag">Supercar</span>
+                </div>
+                <div class="card__body">
+                    <h3>Lamborghini Huracán EVO</h3>
+                    <p>Track-bred theatre with street refinement. For when arrival is the main event.</p>
+                    <dl class="specs">
+                        <div>
+                            <dt>0–100 km/h</dt><dd>2.9s</dd>
+                        </div>
+                        <div>
+                            <dt>Transmission</dt><dd>Dual-clutch</dd>
+                        </div>
+                        <div>
+                            <dt>Use</dt><dd>Self-drive only</dd>
+                        </div>
+                    </dl>
+                    <div class="card__footer">
+                        <span class="price-pill">From R 24 900 / day</span>
+                        <button class="ghost-link">Request this car</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card fleet-card">
+                <div class="card__media card__media--gradient card__media--gold">
+                    <span class="fleet-tier">Executive</span>
+                    <span class="fleet-tag">Luxury SUV</span>
+                </div>
+                <div class="card__body">
+                    <h3>Range Rover Autobiography</h3>
+                    <p>Quiet power, panoramic comfort, and rear-seat serenity for business or family.</p>
+                    <dl class="specs">
+                        <div>
+                            <dt>Seating</dt><dd>4 + luggage</dd>
+                        </div>
+                        <div>
+                            <dt>Options</dt><dd>Chauffeur or self-drive</dd>
+                        </div>
+                        <div>
+                            <dt>Features</dt><dd>Massage seats, rear screens</dd>
+                        </div>
+                    </dl>
+                    <div class="card__footer">
+                        <span class="price-pill">From R 12 500 / day</span>
+                        <button class="ghost-link">Request this car</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card fleet-card">
+                <div class="card__media card__media--gradient card__media--slate">
+                    <span class="fleet-tier">Discrete</span>
+                    <span class="fleet-tag">Executive Sedan</span>
+                </div>
+                <div class="card__body">
+                    <h3>Mercedes-Benz S-Class</h3>
+                    <p>Understated exterior, decadent interior. Your rolling boardroom and private lounge.</p>
+                    <dl class="specs">
+                        <div>
+                            <dt>Seating</dt><dd>3 in rear</dd>
+                        </div>
+                        <div>
+                            <dt>Use</dt><dd>Chauffeur-driven</dd>
+                        </div>
+                        <div>
+                            <dt>Ideal for</dt><dd>Roadshows, VIP transfers</dd>
+                        </div>
+                    </dl>
+                    <div class="card__footer">
+                        <span class="price-pill">From R 8 900 / day</span>
+                        <button class="ghost-link">Request this car</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div class="section__footer container">
+            <p>Looking for something specific? Hypercars and one-off requests are handled via bespoke sourcing.</p>
+            <a href="#instant-enquiry" class="btn btn--ghost">Tell us what you have in mind</a>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section section--contrast" id="experience">
+        <div class="section__header container">
+            <p class="eyebrow">THE VELOIRE EXPERIENCE</p>
+            <div class="section__header-main">
+                <h2>Not a rental. A ritual.</h2>
+                <p>From first message to final handover, every touchpoint is designed to feel seamless and exact.</p>
+            </div>
+        </div>
+
+        <div class="steps container">
+            <article class="step">
+                <span class="step__index">01</span>
+                <h3>Curated shortlist</h3>
+                <p>
+                    Share your dates, city, and occasion. A concierge proposes a tight shortlist that matches your brief
+                    and appetite for drama.
+                </p>
+            </article>
+            <article class="step">
+                <span class="step__index">02</span>
+                <h3>Pre-approval & confirmation</h3>
+                <p>
+                    Documentation and deposit handled digitally. Transparent insurance, mileage, and excess terms —
+                    no small print surprises.
+                </p>
+            </article>
+            <article class="step">
+                <span class="step__index">03</span>
+                <h3>White-glove handover</h3>
+                <p>
+                    Vehicle arrives detailed, fuelled, and pre-configured to your preferences, with a discreet briefing
+                    on controls and quirks.
+                </p>
+            </article>
+            <article class="step">
+                <span class="step__index">04</span>
+                <h3>On-call support</h3>
+                <p>
+                    24/7 concierge for route ideas, last-minute extensions, or alternate vehicles if your plans evolve.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- MEMBERSHIP -->
+    <section class="section" id="membership">
+        <div class="section__header container">
+            <p class="eyebrow">MEMBERSHIP & CORPORATE</p>
+            <div class="section__header-main">
+                <h2>Built for guests and for brands.</h2>
+                <p>
+                    One-off escapes, repeat business travel, or brand partnerships — VELOIRE scales the same level of
+                    care across every booking.
+                </p>
+            </div>
+        </div>
+
+        <div class="container membership-grid">
+            <article class="card membership-card">
+                <h3>Private clients</h3>
+                <ul class="bullet-list">
+                    <li>Priority access to peak-season inventory.</li>
+                    <li>Stored preferences for seating, music, and routes.</li>
+                    <li>Preferential rates on multi-day bookings.</li>
+                    <li>Invitations to closed-door launch events.</li>
+                </ul>
+                <a href="#contact" class="ghost-link">Apply for private membership</a>
+            </article>
+
+            <article class="card membership-card">
+                <h3>Corporate & hotels</h3>
+                <ul class="bullet-list">
+                    <li>Branded chauffeur solutions for VIP guests.</li>
+                    <li>Dedicated coordination line for concierges.</li>
+                    <li>Flexible billing and reporting options.</li>
+                    <li>Co-branded experiences and activations.</li>
+                </ul>
+                <a href="#contact" class="ghost-link">Discuss a partnership</a>
+            </article>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section section--contrast" id="contact">
+        <div class="contact container">
+            <div class="contact__intro">
+                <p class="eyebrow">START A CONVERSATION</p>
+                <h2>Discretion first. Paperwork second.</h2>
+                <p>
+                    Share how you like to travel. We will respond with tailored options, transparent pricing,
+                    and next steps — no spam, no lists.
+                </p>
+                <div class="contact__channels">
+                    <div>
+                        <span class="contact-label">Concierge WhatsApp</span>
+                        <a href="https://wa.me/0000000000" class="contact-value">+27&nbsp;00&nbsp;000&nbsp;0000</a>
+                    </div>
+                    <div>
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:concierge@veloire.com" class="contact-value">concierge@veloire.com</a>
+                    </div>
+                </div>
+                <p class="contact__fine-print">
+                    By sending a message you agree that we may contact you regarding availability and pricing.
+                    No details are shared with third parties.
+                </p>
+            </div>
+
+            <form class="contact-form">
+                <div class="field-group">
+                    <label for="name">Full name</label>
+                    <input id="name" name="name" type="text" placeholder="Your name">
+                </div>
+                <div class="field-group">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="you@example.com">
+                </div>
+                <div class="field-group">
+                    <label for="message">Outline your request</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Dates, city, preferred car or style, any key details…"></textarea>
+                </div>
+                <button type="submit" class="btn btn--primary btn--full">Send to concierge desk</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer__inner container">
+        <div class="footer__brand">
+            <span class="logo__text">VELOIRE</span>
+            <p>Private luxury and supercar rentals with a concierge core.</p>
+        </div>
+        <div class="footer__cols">
+            <div>
+                <h4>Locations</h4>
+                <ul>
+                    <li>Johannesburg</li>
+                    <li>Cape Town</li>
+                    <li>Durban</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#membership">Membership</a></li>
+                    <li><a href="#fleet">Fleet</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Follow</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer__bottom">
+        <div class="container footer__bottom-inner">
+            <span>© <span class="year">2025</span> VELOIRE. All rights reserved.</span>
+            <span class="footer__legal-links">
+                <a href="#">Terms</a>
+                <span>·</span>
+                <a href="#">Privacy</a>
+            </span>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

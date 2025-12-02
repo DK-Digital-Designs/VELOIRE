@@ -1,0 +1,410 @@
+﻿/* style.css – VELOIRE v4 – FINAL & FLAWLESS */
+:root {
+    --black: #0f0f0f;
+    --dark: #1a1a1a;
+    --white: #ffffff;
+    --gold: #d4af37;
+    --accent: #ff4655;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Satoshi', sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Preloader & Page Reveal (Removed/Simplified) */
+body {
+    /* Ensures page is immediately visible */
+    opacity: 1;
+}
+
+/* Removed: .preloader, body.loaded rules */
+
+/* Typography */
+h1, h2, h3, h4, h5 {
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.hero-title .line {
+    display: block;
+}
+
+/* Layout */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1.5rem 0;
+    transition: all 0.4s ease;
+}
+
+.header.scrolled {
+    background: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(12px);
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Clash Display', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    z-index: 1002;
+    position: relative;
+}
+
+/* Navigation - Desktop Default */
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav a {
+    color: var(--white);
+    text-decoration: none;
+    margin-left: 3rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: var(--gold);
+}
+
+.menu-toggle {
+    display: none;
+    color: var(--white);
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1002;
+    user-select: none;
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--gold);
+    color: var(--black);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: var(--white);
+    transform: translateY(-3px);
+}
+
+.btn-primary.large {
+    padding: 1.2rem 3rem;
+    font-size: 1.1rem;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* Hero */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.8));
+    z-index: 2;
+}
+
+.hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 1000px;
+}
+
+.hero-title {
+    font-size: clamp(4rem, 9vw, 9rem);
+    margin-bottom: 1.5rem;
+    line-height: 0.95;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    margin-bottom: 3rem;
+    font-weight: 300;
+    max-width: 600px;
+}
+
+.hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.scroll-hint {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+    z-index: 3;
+    opacity: 0.7;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-15px); }
+}
+
+/* Fleet */
+.fleet {
+    padding: 10rem 0;
+    background: var(--dark);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 6rem;
+}
+
+.fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 3rem;
+    margin-bottom: 5rem;
+}
+
+.car-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 4 / 3;
+    --x: 50%;
+    --y: 50%;
+}
+
+.car-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.car-card:hover img {
+    transform: scale(1.1) translate(calc((var(--x) - 50%) * 0.05), calc((var(--y) - 50%) * 0.05));
+}
+
+.car-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,1), transparent);
+    padding: 4rem 2rem 2rem;
+    transform: translateY(30px);
+    transition: transform 0.5s ease;
+}
+
+.car-card:hover .car-info {
+    transform: translateY(0);
+}
+
+.car-info h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.price {
+    color: var(--gold);
+    font-size: 1.3rem;
+    font-weight: 600;
+    display: block;
+    margin-top: 1rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Sticky CTA */
+.sticky-cta {
+    background: var(--gold);
+    color: var(--black);
+    padding: 3rem 0;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.sticky-cta p {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 600;
+    display: inline-block;
+    margin-right: 2rem;
+    vertical-align: middle;
+}
+
+/* Footer */
+.footer {
+    background: var(--black);
+    padding: 6rem 0 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.footer h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.1em;
+}
+
+.footer h5 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--gold);
+}
+
+.footer ul {
+    list-style: none;
+}
+
+.footer ul li {
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.footer-bottom {
+    text-align: center;
+    opacity: 0.4;
+    font-size: 0.9rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--black);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        transform: translateY(-100%);
+        transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        z-index: 1001;
+    }
+
+    .nav.open {
+        transform: translateY(0);
+    }
+
+    .nav a {
+        margin: 1.5rem 0;
+        font-size: 2rem;
+        font-family: 'Clash Display', sans-serif;
+    }
+
+    .nav .btn-primary {
+        margin-top: 2rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-cta .btn-primary,
+    .hero-cta .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .sticky-cta p {
+        display: block;
+        margin: 0 0 1.5rem 0;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
