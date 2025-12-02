@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VELOIRE — Luxury Car Rentals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+
+    <link id="theme-style" rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="container">
+
+    <header>
+        <h1>VELOIRE</h1>
+        <nav>
+            <a href="#">Fleet</a>
+            <a href="#">List Your Car</a>
+            <a href="#">Pre Approval</a>
+            <a href="#">About</a>
+        </nav>
+        <button class="btn">Request Access</button>
+        <button class="toggle-btn btn" style="margin-left: 1rem;">Switch Theme</button>
+
+    </header>
+
+    <section class="hero fade">
+        <h2>Where Luxury Meets Simplicity</h2>
+        <p>We don’t just rent cars. We curate driving experiences. Supercars and elite vehicles, delivered effortlessly. No ownership. No hassle. All class.</p>
+        <button class="btn">Start Your Experience</button>
+        <img src="../images/sunset-ferrari-drive.jpg" alt="Sunset Ferrari Drive" />
+    </section>
+
+    <section class="section fade">
+        <h3 class="section-title">Curated Fleet</h3>
+        <div class="fleet">
+            <!-- Replace image paths with /images/... if needed -->
+            <div class="card">
+                <img src=/images/campbell-3ZUsNJhi_Ik-unsplash.jpg alt="White Ferrari in studio" />
+                <h4>Ferrari Portofino</h4>
+                <p>$1,450/day · $5k Deposit · 100 mi/day</p>
+            </div>
+            <div class="card">
+                <img src="../images/josh-berquist-_4sWbzH5fp8-unsplash.jpg" alt="G63 AMG" />
+                <h4>Mercedes-Benz G63 AMG</h4>
+                <p>$1,250/day · $4k Deposit · 100 mi/day</p>
+            </div>
+            <div class="card">
+                <img src="../images/justus-menke-K7Sr4YDtL2U-unsplash.jpg" alt="Bentley Flying Spur" />
+                <h4>Bentley Flying Spur</h4>
+                <p>$1,300/day · $5k Deposit · 120 mi/day</p>
+            </div>
+            <div class="card">
+                <img src="../images/luukas-ruus-NXkwdcV-rTw-unsplash.jpg" alt="Lamborghini Aventador" />
+                <h4>Lamborghini Aventador</h4>
+                <p>$1,800/day · $6k Deposit · 90 mi/day</p>
+            </div>
+            <div class="card">
+                <img src="../images/philipp-katzenberger-Y8-H19uSx-Y-unsplash.jpg" alt="BMW M4 Competition" />
+                <h4>BMW M4 Competition</h4>
+                <p>$850/day · $3k Deposit · 150 mi/day</p>
+            </div>
+            <div class="card">
+                <img src="../images/superhero-car-vintage-style.jpg" alt="Vintage Hero Car" />
+                <h4>Vintage Hero Edition</h4>
+                <p>$650/day · $2k Deposit · 200 mi/day</p>
+            </div>
+            <div class="card">
+                <img src="../images/wassim-chouak-lp4NasPXN9w-unsplash.jpg" alt="Bentley GT" />
+                <h4>Bentley Continental GT</h4>
+                <p>$1,100/day · $4k Deposit · 110 mi/day</p>
+            </div>
+            <div class="card">
+                <img src="../images/yellow-sport-car-render-3d-illustration.jpg" alt="Lamborghini Urus Concept" />
+                <h4>Lamborghini Urus (Concept)</h4>
+                <p>$1,600/day · $5k Deposit · 100 mi/day</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section fade">
+        <h3 class="section-title">Partnership Model</h3>
+        <p class="section-text">
+            We collaborate with owners, storage facilities, and dealerships. You provide the car, we handle the client, and everyone profits. 30% commission to Veloire, 60% to you, 10% to storage. Simple.
+        </p>
+    </section>
+
+    <section class="section fade">
+        <h3 class="section-title">Client-Centric Experience</h3>
+        <p class="section-text">
+            From online pre-approval to contract signing, delivery, insurance, and renewals — we automate luxury. Our platform makes the process frictionless, secure, and elite.
+        </p>
+    </section>
+
+    <footer>
+        &copy; 2025 Veloire Luxury Rentals. All rights reserved.
+    </footer>
+</div>
+
+<script>
+    document.querySelectorAll('.btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            alert('Start your luxury journey — application form coming soon.');
+        });
+    });
+
+    document.querySelector('.toggle-btn').addEventListener('click', () => {
+        const link = document.getElementById('theme-style');
+        const current = link.getAttribute('href');
+        link.setAttribute('href', current.includes('style-darkmode.css') ? 'style.css' : 'style-darkmode.css');
+    });
+
+
+</script>
+</body>
+</html>

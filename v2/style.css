@@ -1,0 +1,236 @@
+﻿/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@400;600&family=DM+Serif+Display&display=swap');
+
+:root {
+    --bg-dark: #0a0909;
+    --text-light: #f0e8df;
+    --text-muted: #b9b2aa;
+    --accent: #c8b48a;
+    --glass-bg: rgba(255, 255, 255, 0.04);
+    --card-bg: rgba(20, 18, 17, 0.85);
+    --transition: 0.3s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-dark);
+    color: var(--text-light);
+    font-family: 'Satoshi', sans-serif;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+
+/* Container util */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    background: var(--glass-bg);
+}
+
+.header__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    color: var(--text-light);
+}
+
+.nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    transition: color var(--transition);
+}
+
+.nav a:hover {
+    color: var(--accent);
+}
+
+.btn {
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all var(--transition);
+}
+
+.btn--primary {
+    background: var(--accent);
+    color: #101010;
+    padding: 0.6rem 1.6rem;
+    border-radius: 4px;
+}
+
+.btn--primary:hover {
+    background: #d7c9a1;
+}
+
+.btn--light {
+    background: rgba(255,255,255,0.1);
+    color: var(--text-light);
+    padding: 0.5rem 1.4rem;
+    border-radius: 4px;
+    backdrop-filter: blur(8px);
+}
+
+.btn--light:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* Hero */
+.hero {
+    width: 100%;
+    min-height: 100vh;
+    background: url('images/hero-bg.jpg') center center / cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10,9,9,0.65);
+}
+
+.hero__content {
+    position: relative;
+    color: var(--text-light);
+    text-align: center;
+    padding: 0 1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.hero__title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.hero__subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.scroll-indicator {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    color: var(--accent);
+    animation: bounce 2s infinite;
+    opacity: 0.8;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+}
+
+/* Fleet Section */
+.fleet-section {
+    margin-top: -3rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-light);
+}
+
+.fleet {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 2rem;
+    padding-bottom: 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+}
+
+.fleet::-webkit-scrollbar {
+    display: none;
+}
+
+.card {
+    flex: 0 0 300px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    scroll-snap-align: center;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform var(--transition), filter var(--transition);
+}
+
+.card:hover img {
+    filter: brightness(1.1);
+}
+
+.card__info {
+    padding: 1rem;
+    text-align: center;
+}
+
+.card__info h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.card__info p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Footer */
+.footer {
+    padding: 2rem 1rem;
+    text-align: center;
+    color: var(--text-muted);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 4rem;
+}
