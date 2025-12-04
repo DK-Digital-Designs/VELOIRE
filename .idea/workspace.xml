@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b51cf596-ee3d-4e52-902f-996d990f7468" name="Changes" comment="feat(test)">
-      <change afterPath="$PROJECT_DIR$/images/car.mp4" afterDir="false" />
+    <list default="true" id="b51cf596-ee3d-4e52-902f-996d990f7468" name="Changes" comment="feat(video hero)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +100,7 @@
       <workItem from="1764848700327" duration="5155000" />
       <workItem from="1764870110710" duration="6000" />
       <workItem from="1764876466887" duration="2226000" />
-      <workItem from="1764881001826" duration="411000" />
+      <workItem from="1764881001826" duration="832000" />
     </task>
     <task id="LOCAL-00001" summary="init commit&#10;- setup some basic demos">
       <option name="closed" value="true" />
@@ -168,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764880594813</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="feat(video hero)">
+      <option name="closed" value="true" />
+      <created>1764881467847</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1764881467847</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +187,7 @@
     <MESSAGE value="feat(images)" />
     <MESSAGE value="feat(demo3)&#10;- cooked" />
     <MESSAGE value="feat(test)" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(test)" />
+    <MESSAGE value="feat(video hero)" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(video hero)" />
   </component>
 </project>
