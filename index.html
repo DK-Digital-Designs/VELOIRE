@@ -1,0 +1,334 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VELOIRE — Exclusive Luxury Car Rentals</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Main theme (we'll toggle via data-theme, not CSS file swap) -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="page">
+<header class="header">
+    <div class="header-inner">
+        <div class="logo logo-gradient">VELOIRE</div>
+        <nav class="nav">
+            <a href="#fleet">Fleet</a>
+            <a href="#owners">List Your Car</a>
+            <a href="#request-access">Pre-Approval</a>
+            <a href="#about">About</a>
+        </nav>
+        <div class="header-cta">
+            <button class="btn btn-primary js-scroll-to" data-target="#request-access">
+                Request Access
+            </button>
+            <a href="admin.html" class="btn btn-ghost btn-sm">
+                Admin
+            </a>
+        </div>
+
+    </div>
+</header>
+
+<main>
+    <!-- Hero -->
+    <section class="hero fade">
+        <div class="hero-media hero-media-photo">
+            <!-- Background gradient + overlay handled in CSS -->
+        </div>
+        <div class="hero-gradient"></div>
+
+        <div class="hero-content container hero-content-split">
+            <div class="hero-copy">
+                <p class="eyebrow">Invitation-Only · Price on Application</p>
+                <h1>Where luxury meets simplicity.</h1>
+                <p class="hero-text">
+                    We don’t just rent cars. We curate driving experiences. Supercars and elite SUVs,
+                    delivered effortlessly through a fully managed platform. No ownership. No hassle. All class.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary js-scroll-to" data-target="#fleet">Explore Curated Fleet</button>
+                    <button class="btn btn-ghost js-scroll-to" data-target="#request-access">Start Your Experience</button>
+                </div>
+            </div>
+
+            <figure class="hero-image">
+                <!-- Swap to your real image path -->
+                <img src="/images/sunset-ferrari-drive.jpg" alt="Sunset Ferrari Drive">
+                <figcaption class="hero-image-caption tiny">
+                    Example imagery · Final site will use real VELOIRE shoots.
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- Fleet preview -->
+    <section id="fleet" class="section section-alt fade">
+        <div class="container section-header">
+            <div>
+                <h2 class="section-title">Curated Fleet</h2>
+                <p class="muted">
+                    Hand-picked cars from private collectors, high-end storage facilities, and select dealers.
+                    No static price table — every quote is private.
+                </p>
+            </div>
+            <button class="btn btn-outline btn-sm js-scroll-to" data-target="#request-access">
+                Request Access for a Vehicle
+            </button>
+        </div>
+
+        <div class="container fleet-grid">
+            <!-- Card 1 -->
+            <article class="card card-fleet fade">
+                <img src="/images/campbell-3ZUsNJhi_Ik-unsplash.jpg" alt="White Ferrari in studio" class="card-img">
+                <div class="card-body">
+                    <h3>Ferrari Portofino</h3>
+                    <p class="muted">Twin-turbo V8 · Open-top GT · Discreet but lethal.</p>
+                    <div class="tag-row">
+                        <span class="tag">V8</span>
+                        <span class="tag">Convertible</span>
+                        <span class="tag">GT</span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="pill">POA · 7-Day Max</span>
+                        <a href="car.html" class="btn btn-sm btn-outline">View Profile</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="card card-fleet fade">
+                <img src="/images/josh-berquist-_4sWbzH5fp8-unsplash.jpg" alt="G63 AMG" class="card-img">
+                <div class="card-body">
+                    <h3>Mercedes-Benz G 63 AMG</h3>
+                    <p class="muted">Iconic luxury SUV · Hand-built V8 · Presence for days.</p>
+                    <div class="tag-row">
+                        <span class="tag">AMG</span>
+                        <span class="tag">SUV</span>
+                        <span class="tag">4MATIC</span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="pill">POA · Chauffeur Optional</span>
+                        <a href="car.html" class="btn btn-sm btn-outline">View Profile</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="card card-fleet fade">
+                <img src="/images/luukas-ruus-NXkwdcV-rTw-unsplash.jpg" alt="BMW M4 Competition" class="card-img">
+                <div class="card-body">
+                    <h3>BMW M4 Competition</h3>
+                    <p class="muted">Twin-turbo straight-six · xDrive · Track-biased coupe.</p>
+                    <div class="tag-row">
+                        <span class="tag">M</span>
+                        <span class="tag">xDrive</span>
+                        <span class="tag">Coupe</span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="pill">POA · 7-Day Max</span>
+                        <a href="car.html" class="btn btn-sm btn-outline">View Profile</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="card card-fleet fade">
+                <img src="/images/luukas-ruus-NXkwdcV-rTw-unsplash.jpg" alt="Lamborghini Aventador" class="card-img">
+                <div class="card-body">
+                    <h3>Lamborghini Aventador</h3>
+                    <p class="muted">Naturally-aspirated V12 · Theatre on four wheels.</p>
+                    <div class="tag-row">
+                        <span class="tag">V12</span>
+                        <span class="tag">Supercar</span>
+                        <span class="tag">Flagship</span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="pill">POA · Strict Use Policy</span>
+                        <a href="car.html" class="btn btn-sm btn-outline">View Profile</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Partnership model -->
+    <section id="owners" class="section fade">
+        <div class="container grid grid-2">
+            <div>
+                <h2 class="section-title">Partnership Model</h2>
+                <p class="section-text">
+                    We collaborate with owners, storage facilities, and dealerships. You provide the car,
+                    we handle the client, and everyone profits.
+                </p>
+                <ul class="bullet-list">
+                    <li>60% to vehicle owner · 30% to Veloire · 10% to storage partner.</li>
+                    <li>We manage vetting, contracts, payments, and delivery logistics.</li>
+                    <li>Full pre- and post-rental inspections at your facility.</li>
+                    <li>Professional photos, videos, and profiles for each listing.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Owner / Partner Enquiry</h3>
+                <form class="form" id="owner-enquiry-form">
+                    <label>
+                        Name
+                        <input type="text" name="ownerName" required>
+                    </label>
+                    <label>
+                        Email
+                        <input type="email" name="ownerEmail" required>
+                    </label>
+                    <label>
+                        Vehicle (Make & Model)
+                        <input type="text" name="vehicle" required>
+                    </label>
+                    <label>
+                        Message
+                        <textarea name="ownerMessage" rows="3" placeholder="Tell us about your vehicle and storage situation." required></textarea>
+                    </label>
+                    <button type="submit" class="btn btn-primary btn-full">Submit Partner Enquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works / Client-centric -->
+    <section id="how-it-works" class="section section-alt fade">
+        <div class="container section-header">
+            <div>
+                <h2 class="section-title">Client-Centric Experience</h2>
+                <p class="muted">
+                    From online pre-approval to contract signing, delivery, insurance, and renewals —
+                    we automate luxury while keeping everything tightly controlled.
+                </p>
+            </div>
+        </div>
+
+        <div class="container grid grid-3">
+            <article class="card fade">
+                <p class="step-number">01</p>
+                <h3>Pre-Approval</h3>
+                <p class="muted">
+                    Request access once. We privately vet your profile, driving history, and intended usage.
+                </p>
+            </article>
+            <article class="card fade">
+                <p class="step-number">02</p>
+                <h3>Private Quotation</h3>
+                <p class="muted">
+                    Receive personalised rates, deposits, and mileage bands for the vehicles you qualify for.
+                </p>
+            </article>
+            <article class="card fade">
+                <p class="step-number">03</p>
+                <h3>Seamless Delivery</h3>
+                <p class="muted">
+                    Digital contracts, secure payments, and coordinated delivery/collection direct from storage.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Request Access -->
+    <section id="request-access" class="section fade">
+        <div class="container grid grid-2">
+            <div>
+                <h2 class="section-title">Request Access</h2>
+                <p class="section-text">
+                    This is a pre-approval, not a booking. Every application is reviewed by a human —
+                    no instant approvals, no mass-market behaviour.
+                </p>
+                <ul class="bullet-list">
+                    <li>Maximum 7-day rental per booking (renewable after inspection).</li>
+                    <li>No public pricing. All rates are communicated privately.</li>
+                    <li>Valid driver’s license and proof of ID required.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Pre-Approval Form</h3>
+                <form class="form" data-rfa-form>
+                    <label>
+                        Full Name
+                        <input type="text" name="fullName" required>
+                    </label>
+                    <label>
+                        Email
+                        <input type="email" name="email" required>
+                    </label>
+                    <label>
+                        Phone / WhatsApp
+                        <input type="tel" name="phone" required>
+                    </label>
+                    <label>
+                        Desired Vehicle
+                        <select name="vehicle">
+                            <option value="portofino">Ferrari Portofino</option>
+                            <option value="g63">Mercedes-Benz G 63 AMG</option>
+                            <option value="m4">BMW M4 Competition</option>
+                            <option value="aventador">Lamborghini Aventador</option>
+                        </select>
+                    </label>
+                    <div class="grid grid-2 compact-grid">
+                        <label>
+                            Start Date
+                            <input type="date" name="startDate" required>
+                        </label>
+                        <label>
+                            End Date (Max 7 days)
+                            <input type="date" name="endDate" required>
+                        </label>
+                    </div>
+                    <label>
+                        Intended Use & Estimated Mileage
+                        <textarea name="usage" rows="3" required></textarea>
+                    </label>
+                    <button type="submit" class="btn btn-primary btn-full">Submit for Review</button>
+                    <p class="tiny muted">You will receive a private response — there are no instant approvals.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / footer pre-section -->
+    <section id="about" class="section section-alt fade">
+        <div class="container grid grid-2">
+            <div>
+                <h2 class="section-title">About VELOIRE</h2>
+                <p class="section-text">
+                    Veloire Luxury Rentals is a platform-driven, asset-light business. We don’t own the cars —
+                    we orchestrate the experience between owners, storage partners, and carefully vetted clients.
+                </p>
+            </div>
+            <div class="card card-soft">
+                <p class="tiny muted">Why this matters</p>
+                <p class="muted">
+                    This model keeps the fleet flexible and current, reduces idle assets for owners and facilities,
+                    and makes once-off supercar experiences accessible to a tightly-controlled private list.
+                </p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div>
+            <p class="logo logo-gradient">VELOIRE</p>
+            <p class="muted tiny">
+                A private, invitation-only luxury car rental experience. No public pricing. No mass-market bookings.
+            </p>
+        </div>
+        <div class="footer-newsletter">
+            <p class="muted">Join the private list</p>
+            <form id="newsletter-form" class="newsletter-form">
+                <input type="email" name="newsletterEmail" placeholder="Email address" required>
+                <button type="submit" class="btn btn-sm btn-outline">Request Early Access</button>
+            </form>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
