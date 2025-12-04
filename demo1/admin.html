@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Veloire Admin — Dashboard Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="page page-admin">
+<header class="header header-admin">
+    <div class="header-inner">
+        <a href="index.html" class="logo">VELOIRE</a>
+        <span class="muted tiny">Admin Demo • Not Authenticated</span>
+    </div>
+</header>
+
+<div class="admin-shell">
+    <aside class="admin-sidebar">
+        <nav class="admin-nav">
+            <p class="admin-nav-title">Dashboard</p>
+            <button class="admin-nav-item is-active" data-admin-section="overview">Overview</button>
+            <button class="admin-nav-item" data-admin-section="requests">Requests for Access</button>
+            <button class="admin-nav-item" data-admin-section="fleet">Fleet</button>
+            <button class="admin-nav-item" data-admin-section="owners">Owners</button>
+            <button class="admin-nav-item" data-admin-section="testimonials">Testimonials</button>
+        </nav>
+    </aside>
+
+    <main class="admin-main">
+        <!-- Overview -->
+        <section class="admin-section is-active" id="admin-overview">
+            <h1>Admin Overview</h1>
+            <p class="muted">
+                High-level snapshot of activity. This is a static demo; data is mocked for proof-of-concept.
+            </p>
+
+            <div class="grid grid-3 admin-metrics">
+                <div class="card card-soft">
+                    <p class="tiny muted">Pending Requests</p>
+                    <p class="metric-number">5</p>
+                    <p class="tiny muted">New in last 24 hours</p>
+                </div>
+                <div class="card card-soft">
+                    <p class="tiny muted">Approved Clients</p>
+                    <p class="metric-number">18</p>
+                    <p class="tiny muted">Eligible for Client Portal</p>
+                </div>
+                <div class="card card-soft">
+                    <p class="tiny muted">Vehicles Live</p>
+                    <p class="metric-number">12</p>
+                    <p class="tiny muted">Across 3 partner facilities</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Requests for Access -->
+        <section class="admin-section" id="admin-requests">
+            <h1>Requests for Access</h1>
+            <p class="muted">
+                Manually vet every application before sharing private rates and contracts.
+            </p>
+            <div class="card">
+                <table class="admin-table" data-admin-requests>
+                    <thead>
+                    <tr>
+                        <th>Client</th>
+                        <th>Vehicle</th>
+                        <th>Dates</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr data-rfa-row>
+                        <td>
+                            <strong>Michael Stone</strong><br>
+                            <span class="tiny muted">michael@example.com</span>
+                        </td>
+                        <td>Mercedes-AMG GT 63 S</td>
+                        <td>10–13 Jan</td>
+                        <td><span class="status-pill status-pending">Pending</span></td>
+                        <td>
+                            <button class="btn btn-xs" data-action="approve">Approve</button>
+                            <button class="btn btn-xs btn-outline" data-action="reject">Reject</button>
+                        </td>
+                    </tr>
+                    <tr data-rfa-row>
+                        <td>
+                            <strong>Sarah Lee</strong><br>
+                            <span class="tiny muted">sarah@example.com</span>
+                        </td>
+                        <td>BMW M4 Competition</td>
+                        <td>22–24 Dec</td>
+                        <td><span class="status-pill status-pending">Pending</span></td>
+                        <td>
+                            <button class="btn btn-xs" data-action="approve">Approve</button>
+                            <button class="btn btn-xs btn-outline" data-action="reject">Reject</button>
+                        </td>
+                    </tr>
+                    <tr data-rfa-row>
+                        <td>
+                            <strong>Jabu N.</strong><br>
+                            <span class="tiny muted">jabu@example.com</span>
+                        </td>
+                        <td>G 63 AMG</td>
+                        <td>01–07 Feb</td>
+                        <td><span class="status-pill status-approved">Approved</span></td>
+                        <td>
+                            <button class="btn btn-xs btn-outline" data-action="reset">Reset</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Fleet -->
+        <section class="admin-section" id="admin-fleet">
+            <h1>Fleet Management</h1>
+            <p class="muted">
+                Add, edit, or toggle visibility of vehicles in the public fleet listing.
+            </p>
+            <div class="card">
+                <table class="admin-table">
+                    <thead>
+                    <tr>
+                        <th>Vehicle</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Mercedes-AMG GT 63 S</td>
+                        <td>Storage Facility A</td>
+                        <td><span class="status-pill status-live">Live</span></td>
+                    </tr>
+                    <tr>
+                        <td>BMW M4 Competition xDrive</td>
+                        <td>Dealer Partner B</td>
+                        <td><span class="status-pill status-live">Live</span></td>
+                    </tr>
+                    <tr>
+                        <td>Mercedes-Benz G 63 AMG</td>
+                        <td>Private Collection</td>
+                        <td><span class="status-pill status-maintenance">Inspection</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Owners -->
+        <section class="admin-section" id="admin-owners">
+            <h1>Owners & Partners</h1>
+            <p class="muted">
+                Submissions from storage facilities, dealers, and private owners who want to onboard vehicles.
+            </p>
+            <div class="card">
+                <table class="admin-table">
+                    <thead>
+                    <tr>
+                        <th>Owner</th>
+                        <th>Vehicle</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Urban Garage Storage</td>
+                        <td>2× AMG, 1× M5 Competition</td>
+                        <td><span class="status-pill status-approved">Onboarded</span></td>
+                    </tr>
+                    <tr>
+                        <td>Private — “Z.R.”</td>
+                        <td>Lamborghini Huracán EVO</td>
+                        <td><span class="status-pill status-pending">Pending Docs</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="admin-section" id="admin-testimonials">
+            <h1>Testimonials</h1>
+            <p class="muted">
+                Client testimonials submitted after completed rentals. Admin decides what is published.
+            </p>
+            <div class="card">
+                <ul class="testimonial-list">
+                    <li>
+                        <p class="tiny muted">G 63 AMG · Completed: 02 Nov</p>
+                        <p>
+                            “The entire experience felt like a private concierge service. Every detail was handled
+                            before I even arrived at the storage facility.”
+                        </p>
+                        <div class="tiny muted">Status: <strong>Published</strong></div>
+                    </li>
+                    <li>
+                        <p class="tiny muted">AMG GT 63 S · Completed: 18 Oct</p>
+                        <p>
+                            “Veloire’s vetting process made me feel safe as an owner. I’d happily list more cars.”
+                        </p>
+                        <div class="tiny muted">Status: <strong>Pending Review</strong></div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,271 @@
+﻿body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0d0d0d; /* Near-black background */
+    color: #ffffff; /* White text */
+}
+
+/* Brand Palette & Typography */
+:root {
+    --color-primary: #f0e6c6; /* Light Champagne/Gold */
+    --color-secondary: #1a1a1a; /* Dark contrast */
+    --color-text: #e0e0e0;
+    --font-heading: 'Georgia', serif; /* For a strong, editorial feel */
+}
+
+/* Layout and Spacing */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header/Navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+nav a {
+    color: var(--color-text);
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--color-primary);
+}
+
+/* Buttons */
+.cta-button {
+    background-color: var(--color-primary);
+    color: #000000;
+    padding: 15px 40px;
+    text-decoration: none;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    background-color: #fff;
+}
+
+/* Hero Section (Cinematic) */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    /* Simulate Cinematic Background (replace with actual video/image) */
+    background: url('https://via.placeholder.com/1920x1080/0d0d0d/e0e0e0?text=Cinematic+Hero+Video+Placeholder') no-repeat center center/cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+    letter-spacing: 2px;
+    color: var(--color-primary);
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+/* Featured Fleet Section */
+.fleet-section {
+    padding: 80px 50px;
+    text-align: center;
+    background-color: var(--color-secondary);
+}
+
+.fleet-section h2 {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    color: var(--color-primary);
+    margin-bottom: 60px;
+}
+
+.fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.car-card {
+    background-color: #242424;
+    text-align: left;
+    transition: transform 0.3s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+}
+
+.car-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.car-info {
+    padding: 20px;
+}
+
+.car-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    color: var(--color-primary);
+}
+
+.car-info p {
+    font-size: 14px;
+    color: var(--color-text);
+    margin-bottom: 15px;
+}
+
+.car-info .view-btn {
+    font-size: 14px;
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+/* Vehicle Profile Specific Styles */
+.profile-content {
+    padding: 100px 50px 50px;
+}
+
+.profile-media img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    margin-bottom: 40px;
+}
+
+.profile-details {
+    display: flex;
+    gap: 80px;
+    text-align: left;
+}
+
+.specs, .rules {
+    flex: 1;
+}
+
+.specs h2, .rules h2 {
+    font-family: var(--font-heading);
+    font-size: 30px;
+    color: var(--color-primary);
+    border-bottom: 1px solid var(--color-primary);
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.specs ul {
+    list-style: none;
+    padding: 0;
+}
+
+.specs li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #333;
+    display: flex;
+    justify-content: space-between;
+}
+
+.specs li strong {
+    color: var(--color-primary);
+}
+
+.rules p {
+    line-height: 1.8;
+}
+
+.cta-box {
+    text-align: center;
+    padding: 60px 0;
+    margin-top: 50px;
+    border-top: 1px solid #333;
+}
+
+.cta-box h3 {
+    font-size: 24px;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.cta-box p {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* Rate Display (Admin-Approved View) */
+.rate-display {
+    text-align: center;
+    padding: 100px 50px;
+}
+
+.rate-display h1 {
+    font-size: 50px;
+    color: var(--color-primary);
+    margin-bottom: 30px;
+}
+
+.rate-display h2 {
+    font-size: 40px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.rate-display .disclaimer {
+    color: #aaa;
+    margin-top: 20px;
+    font-style: italic;
+}

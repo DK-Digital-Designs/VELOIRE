@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Apex - GT Black Series | Veloire</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">VELOIRE</a>
+    <nav>
+        <a href="#">Fleet</a>
+        <a href="#">How It Works</a>
+        <a href="#">Testimonials</a>
+        <a href="#">Owners</a>
+        <a href="#">Client Portal</a>
+    </nav>
+</header>
+
+<main class="profile-content">
+    <h1>The Apex - GT Black Series</h1>
+    <p style="font-size: 18px; color: var(--color-primary); margin-bottom: 40px;">720hp, V8 Bi-Turbo, Track-Focused Precision.</p>
+
+    <div class="profile-media">
+        <img src="https://via.placeholder.com/1400x600/222222/f0e6c6?text=High+Resolution+Vehicle+Gallery" alt="GT Black Series Profile">
+    </div>
+
+    <div class="profile-details">
+        <div class="specs">
+            <h2>Key Specifications</h2>
+            <ul>
+                <li><span>Engine</span> <strong>4.0L V8 Bi-Turbo</strong></li>
+                <li><span>Power</span> <strong>720 HP</strong></li>
+                <li><span>0–100 km/h</span> <strong>3.2 Seconds</strong></li>
+                <li><span>Drivetrain</span> <strong>RWD</strong></li>
+                <li><span>Exterior</span> <strong>Magno Hell Green</strong></li>
+                <li><span>Interior</span> <strong>Carbon Fiber & Alcantara</strong></li>
+            </ul>
+        </div>
+
+        <div class="rules">
+            <h2>Rental & Operational Rules</h2>
+            <p><strong>Max 7 Days Booking:</strong> Rentals are capped at seven days, with the option for renewal[cite: 62].</p>
+            <p><strong>Mandatory Inspection:</strong> Renewals always require the vehicle to return for inspection before the next period begins, protecting our partners' assets[cite: 63, 118].</p>
+            <p><strong>Mileage Cap:</strong> This vehicle is subject to a 150 km/day mileage allowance[cite: 194]. Additional fees apply for excess usage[cite: 14].</p>
+        </div>
+    </div>
+
+    <div class="cta-box">
+        <h3>Access to the Veloire Fleet is By Private Approval Only.</h3>
+        <p>Public pricing is never displayed. Submit a request to begin the vetting process and receive your private quotation.</p>
+        <a href="#" class="cta-button" onclick="requestAccess()">REQUEST ACCESS / PRE-APPROVAL</a>
+    </div>
+</main>
+
+<script>
+    function requestAccess() {
+        // In the real system, this would lead to a detailed form (8.4)
+        alert("Request for Access Submitted. The Veloire team will manually vet your application.");
+
+        // SIMULATION: After a manual Admin approval (9.2), the system sends a private link.
+        // This is the link:
+        if (confirm("SIMULATION: Your application has been APPROVED. Click OK to view your private rate.")) {
+            window.location.href = 'rate_approved.html';
+        }
+    }
+</script>
+</body>
+</html>

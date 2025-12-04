@@ -77,6 +77,23 @@
             color:var(--muted);
         }
 
+        /* Primary demo buttons (Demo 1 & Demo 2) ---------------------------- */
+        .primary-demos{
+            margin-bottom:2.5rem;
+        }
+
+        .primary-grid{
+            display:flex;
+            justify-content:center;
+            gap:1.25rem;
+            flex-wrap:wrap;
+        }
+
+        .primary-grid .demo-card{
+            flex:1 1 260px;
+            max-width:360px;
+        }
+
         .grid{
             display:grid;
             grid-template-columns:repeat(5,minmax(0,1fr));
@@ -262,6 +279,48 @@
         </div>
     </header>
 
+    <!-- Primary Demo 1 & Demo 2 buttons/cards -->
+    <section class="primary-demos">
+        <div class="primary-grid">
+            <article class="demo-card">
+                <a class="demo-link" href="demo1/index.html">
+                    <div class="thumb">
+                        <!-- add your real screenshot here, e.g. demos/demo1.jpg -->
+                        <img src="demos/demo1.jpg" alt="VELOIRE Demo 1 preview">
+                    </div>
+                    <div class="info">
+                        <div class="label-row">
+                            <span class="version-tag">Demo 1</span>
+                            <span class="status-pill">Featured</span>
+                        </div>
+                        <div class="title">Demo 1</div>
+                        <div class="subtitle">Primary presentation demo for VELOIRE.</div>
+                        <span class="cta-button">Open Demo 1</span>
+                    </div>
+                </a>
+            </article>
+
+            <article class="demo-card">
+                <a class="demo-link" href="demo2/index.html">
+                    <div class="thumb">
+                        <!-- add your real screenshot here, e.g. demos/demo2.jpg -->
+                        <img src="demos/demo2.jpg" alt="VELOIRE Demo 2 preview">
+                    </div>
+                    <div class="info">
+                        <div class="label-row">
+                            <span class="version-tag">Demo 2</span>
+                            <span class="status-pill">Featured</span>
+                        </div>
+                        <div class="title">Demo 2</div>
+                        <div class="subtitle">Alternate demo option for client walkthroughs.</div>
+                        <span class="cta-button">Open Demo 2</span>
+                    </div>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Existing v1–v5 grid -->
     <main class="grid">
         <!-- NOTE: adjust image extensions if needed (e.g. v1.png, v1.webp) -->
         <article class="demo-card">
