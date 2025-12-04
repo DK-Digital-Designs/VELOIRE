@@ -34,9 +34,16 @@
 
 <main>
     <!-- Hero -->
-    <section class="hero fade">
-        <div class="hero-media hero-media-photo">
-            <!-- Background gradient + overlay handled in CSS -->
+    <section class="hero fade" data-delay="0">
+        <div class="hero-media">
+            <video
+                    class="hero-video"
+                    src="images/car.mp4"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+            ></video>
         </div>
         <div class="hero-gradient"></div>
 
@@ -49,20 +56,17 @@
                     delivered effortlessly through a fully managed platform. No ownership. No hassle. All class.
                 </p>
                 <div class="hero-actions">
-                    <button class="btn btn-primary js-scroll-to" data-target="#fleet">Explore Curated Fleet</button>
-                    <button class="btn btn-ghost js-scroll-to" data-target="#request-access">Start Your Experience</button>
+                    <button class="btn btn-primary js-scroll-to" data-target="#fleet">
+                        Explore Curated Fleet
+                    </button>
+                    <button class="btn btn-ghost js-scroll-to" data-target="#request-access">
+                        Start Your Experience
+                    </button>
                 </div>
             </div>
-
-            <figure class="hero-image">
-                <!-- Swap to your real image path -->
-                <img src="images/sunset-ferrari-drive.jpg" alt="Sunset Ferrari Drive">
-                <figcaption class="hero-image-caption tiny">
-                    Example imagery · Final site will use real VELOIRE shoots.
-                </figcaption>
-            </figure>
         </div>
     </section>
+
 
     <!-- Fleet preview -->
     <section id="fleet" class="section section-alt fade">
