@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const vehicleSlug = params.get('id');
 
     if (!vehicleSlug) {
-        window.location.href = 'fleet.html';
+        window.location.href = '/pages/fleet.html';
         return;
     }
 
@@ -42,15 +42,28 @@ function renderVehicle(vehicle) {
     }
 
     if (specsRoot) {
-        const specs = [
-            { label: 'Transmission', value: vehicle.transmission || 'Automatic' },
-            { label: 'Fuel Type', value: vehicle.fuelType || 'Premium' },
-            { label: 'Class', value: vehicle.type || 'Supercar' },
-            { label: 'Availability', value: 'Subject to Vetting' }
-        ];
+        let specs = [];
+        try {
+            const parsed = JSON.parse(vehicle.specsJson || '{}');
+            specs = Object.entries(parsed).map(([k, v]) => ({
+                label: k.charAt(0).toUpperCase() + k.slice(1).replace(/([A-Z])/g, ' $1'),
+                value: v
+            }));
+        } catch (e) {
+            console.warn("Failed to parse specs", e);
+        }
+
+        if (specs.length === 0) {
+            specs = [
+                { label: 'Class', value: vehicle.type || 'Supercar' },
+                { label: 'Year', value: vehicle.year },
+                { label: 'Availability', value: 'Subject to Vetting' }
+            ];
+        }
+
         specsRoot.innerHTML = specs.map(s => `
             <div>
-                <dt>${s.label}</dt>
+                <dt class="tiny muted uppercase">${s.label}</dt>
                 <dd>${s.value}</dd>
             </div>
         `).join('');

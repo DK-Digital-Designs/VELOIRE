@@ -43,7 +43,7 @@ async function loadFleet(filter) {
                 <div class="card-details">
                     <h3>${v.name}</h3>
                     <p class="tiny muted uppercase">${v.type || 'Supercar'} · POA</p>
-                    <a href="vehicle.html?id=${v.id}" class="link-minimal">View Profile →</a>
+                    <a href="/pages/vehicle.html?id=${v.slug || v.id}" class="link-minimal">View Profile →</a>
                 </div>
             </article>
         `).join('');

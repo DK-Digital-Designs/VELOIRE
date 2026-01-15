@@ -3,28 +3,28 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Request Access — VELOIRE Private Portal</title>
+    <title>Request Portal — VELOIRE</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="/css/main.css">
 
     <!-- Vite Core Scripts -->
-    <script type="module" src="../js/api.js"></script>
-    <script type="module" src="../js/ui.js"></script>
-    <script type="module" src="../js/request.js"></script>
+    <script type="module" src="/js/api.js"></script>
+    <script type="module" src="/js/ui.js"></script>
+    <script type="module" src="/js/request.js"></script>
 </head>
 
 <body class="page">
     <header class="header">
         <div class="header-inner container">
-            <a href="../index.html" class="logo logo-gradient">VELOIRE</a>
+            <a href="/index.html" class="logo logo-gradient">VELOIRE</a>
         </div>
     </header>
 
-    <main>
+    <main id="rfa-main">
         <section class="section">
             <div class="container" style="max-width: 800px;">
                 <div class="form-steps-header" style="margin-bottom: 4rem;">
@@ -37,84 +37,65 @@
                     </div>
                 </div>
 
-                <div class="card-premium">
-                    <form class="form" id="multi-step-rfa">
-                        <!-- Step 1: Identity -->
-                        <div class="form-step" data-step="1">
-                            <h3>Step 1: Your Identity</h3>
-                            <p class="muted tiny" style="margin-bottom: 2rem;">Legal identification is required for our
-                                private vetting process.</p>
-                            <label>Full Name</label>
-                            <input type="text" name="clientName" required>
-
-                            <label>Private Email</label>
-                            <input type="email" name="clientEmail" required>
-
-                            <label>Phone / WhatsApp</label>
-                            <input type="tel" name="phone" required>
-
-                            <div style="margin-top: 2rem;">
-                                <button type="button" class="btn btn-primary btn-full next-step">Continue</button>
+                <form class="form card-premium" id="multi-step-rfa">
+                    <!-- Step 1: Identification -->
+                    <div class="form-step" data-step="1">
+                        <h3>1. Identity</h3>
+                        <div class="grid grid-2">
+                            <div>
+                                <label>Full Name</label>
+                                <input type="text" name="fullName" required placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label>Email Address</label>
+                                <input type="email" name="email" required placeholder="john@example.com">
                             </div>
                         </div>
+                        <label>Contact Number</label>
+                        <input type="tel" name="phone" required placeholder="+27 ...">
+                        <button type="button" class="btn btn-primary next-step">Continue</button>
+                    </div>
 
-                        <!-- Step 2: Driving History -->
-                        <div class="form-step" data-step="2" style="display: none;">
-                            <h3>Step 2: Driving Profile</h3>
-                            <p class="muted tiny" style="margin-bottom: 2rem;">Demonstrated experience with
-                                high-performance machinery.</p>
-                            <label>Experience with High-Performance Vehicles</label>
-                            <textarea name="experience" rows="3"
-                                placeholder="List models you have operated."></textarea>
-
-                            <div style="margin-top: 2rem; display: flex; gap: 1rem;">
-                                <button type="button" class="btn btn-ghost prev-step">Back</button>
-                                <button type="button" class="btn btn-primary btn-full next-step">Continue</button>
-                            </div>
+                    <!-- Step 2: Experience -->
+                    <div class="form-step" data-step="2" style="display: none;">
+                        <h3>2. Performance History</h3>
+                        <label>Current/Previous High-Performance Vehicles</label>
+                        <textarea name="experience" required
+                            placeholder="Please list 2-3 significant cars you have experience with..."></textarea>
+                        <div class="grid grid-2">
+                            <button type="button" class="btn btn-ghost prev-step">Back</button>
+                            <button type="button" class="btn btn-primary next-step">Continue</button>
                         </div>
+                    </div>
 
-                        <!-- Step 3: Usage -->
-                        <div class="form-step" data-step="3" style="display: none;">
-                            <h3>Step 3: Usage Intent</h3>
-                            <p class="muted tiny" style="margin-bottom: 2rem;">Tell us how you intend to use the
-                                collection.</p>
-                            <div class="grid-2 compact-grid"
-                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
-                                <div>
-                                    <label>Start Date</label>
-                                    <input type="date" name="startDate">
-                                </div>
-                                <div>
-                                    <label>End Date</label>
-                                    <input type="date" name="endDate">
-                                </div>
-                            </div>
-                            <label>Intended Usage</label>
-                            <textarea name="usageDescription" rows="3"
-                                placeholder="Business, leisure, or private display."></textarea>
-
-                            <div style="margin-top: 2rem; display: flex; gap: 1rem;">
-                                <button type="button" class="btn btn-ghost prev-step">Back</button>
-                                <button type="submit" class="btn btn-primary btn-full">Submit Application</button>
-                            </div>
+                    <!-- Step 3: Intent -->
+                    <div class="form-step" data-step="3" style="display: none;">
+                        <h3>3. Intent</h3>
+                        <label>Primary Use Case</label>
+                        <select name="usage">
+                            <option value="corporate">Corporate Event</option>
+                            <option value="leisure">Weekend Leisure</option>
+                            <option value="production">Media Production</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <label>Message/Notes</label>
+                        <textarea name="usageDescription" required
+                            placeholder="Any specific requirements..."></textarea>
+                        <div class="grid grid-2">
+                            <button type="button" class="btn btn-ghost prev-step">Back</button>
+                            <button type="button" class="btn btn-primary" type="submit">Submit Application</button>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </section>
     </main>
-    <style>
-        .step-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-        }
 
-        .step-dot.active {
-            background: var(--accent);
-        }
-    </style>
+    <footer class="footer">
+        <div class="container" style="text-align: center;">
+            <p class="tiny muted uppercase tracking-widest">&copy; 2026 VELOIRE — PRIVATE COLLECTION</p>
+        </div>
+    </footer>
 </body>
 
 </html>

@@ -73,11 +73,13 @@ document.addEventListener("DOMContentLoaded", () => {
         if (json.success) {
             form.innerHTML = `
                 <div style="text-align: center; padding: 4rem;">
-                    <h2>Application Submitted.</h2>
-                    <p class="muted">A Veloire concierge will review your profile and reach out within 24 hours.</p>
-                    <a href="../index.html" class="btn btn-primary" style="margin-top: 2rem;">Return Home</a>
+                    <h2>Vetting Accepted.</h2>
+                    <p class="muted">Accessing your private portal...</p>
                 </div>
             `;
+            setTimeout(() => {
+                window.location.href = "/pages/portal.html";
+            }, 2000);
         } else {
             alert(json.error || "Submission failed");
             ui.setBtnLoading(btn, false);

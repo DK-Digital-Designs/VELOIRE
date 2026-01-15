@@ -126,7 +126,8 @@ router.get('/fleet/:slug', async (req, res, next) => {
             where: {
                 OR: [
                     { id: req.params.slug },
-                    { name: { contains: req.params.slug } } // Simple fallback for demo
+                    { slug: req.params.slug },
+                    { name: { contains: req.params.slug } }
                 ],
                 status: 'LIVE',
                 deletedAt: null
