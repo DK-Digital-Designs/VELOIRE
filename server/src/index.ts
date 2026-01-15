@@ -9,6 +9,7 @@ import { errorHandler } from './middleware/error';
 import authRoutes from './routes/auth';
 import publicRoutes from './routes/public';
 import adminRoutes from './routes/admin';
+import vendorRoutes from './routes/vendor';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -28,6 +29,7 @@ app.use(cookieParser());
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1', publicRoutes);
 app.use('/api/v1/admin', adminRoutes);
+app.use('/api/v1/vendor', vendorRoutes);
 
 // Serve static files from root
 // We assume the server is running from server/dist or server/src

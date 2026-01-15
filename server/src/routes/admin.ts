@@ -106,6 +106,85 @@ router.get('/fleet', async (req, res, next) => {
     }
 });
 
+// POST /api/v1/admin/fleet - Create new vehicle
+router.post('/fleet', async (req, res, next) => {
+    try {
+        const { name, make, model, summary, heroImageUrl, specsJson, slug, year } = req.body;
+
+        // Default owner for admin-created cars if no owner provided
+        const defaultOwner = await prisma.owner.findFirst();
+        if (!defaultOwner) return sendError(res, 'No owner found to assign vehicle', 'ERR_DEP_MISSING', undefined, 400);
+
+        const vehicle = await prisma.vehicle.create({
+            data: {
+                name,
+                make,
+                model,
+                year: parseInt(year as string) || new Date().getFullYear(),
+                slug,
+                summary,
+                heroImageUrl,
+                specsJson,
+                status: 'LIVE',
+                ownerId: defaultOwner.id
+            }
+        });
+
+        // Also create a primary image record
+        await prisma.vehicleImage.create({
+            data: {
+                vehicleId: vehicle.id,
+                url: heroImageUrl,
+                isPrimary: true,
+                altText: name
+            }
+        });
+
+        return sendSuccess(res, vehicle, 'Vehicle registered successfully', 201);
+    } catch (error) {
+        next(error);
+    }
+});
+
+// DELETE /api/v1/admin/fleet/:id - Delete vehicle
+router.delete('/fleet/:id', async (req, res, next) => {
+    try {
+        const { id } = req.params;
+
+        // Use soft delete (setting deletedAt) as per project pattern
+        await prisma.vehicle.update({
+            where: { id },
+            data: { deletedAt: new Date(), status: 'DISCONTINUED' }
+        });
+
+        return sendSuccess(res, { message: 'Vehicle decommissioned' });
+    } catch (error) {
+        next(error);
+    }
+});
+
+// PATCH /api/v1/admin/fleet/:id - Update vehicle
+router.patch('/fleet/:id', async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const data = req.body;
+
+        // Ensure year is a number if provided
+        if (data.year) data.year = parseInt(data.year as string);
+
+        const vehicle = await prisma.vehicle.update({
+            where: { id },
+            data: {
+                ...data
+            }
+        });
+
+        return sendSuccess(res, vehicle, 'Vehicle updated successfully');
+    } catch (error) {
+        next(error);
+    }
+});
+
 // GET /api/v1/admin/owners - List owners
 router.get('/owners', async (req, res, next) => {
     try {

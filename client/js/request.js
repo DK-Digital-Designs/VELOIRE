@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             `;
             setTimeout(() => {
-                window.location.href = "/pages/portal.html";
+                window.location.href = "/portal/";
             }, 2000);
         } else {
             alert(json.error || "Submission failed");

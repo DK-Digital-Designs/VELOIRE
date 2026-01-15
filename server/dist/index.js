@@ -13,6 +13,7 @@ const error_1 = require("./middleware/error");
 const auth_1 = __importDefault(require("./routes/auth"));
 const public_1 = __importDefault(require("./routes/public"));
 const admin_1 = __importDefault(require("./routes/admin"));
+const vendor_1 = __importDefault(require("./routes/vendor"));
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 3000;
 // Security & Base Middleware
@@ -29,6 +30,7 @@ app.use((0, cookie_parser_1.default)());
 app.use('/api/v1/auth', auth_1.default);
 app.use('/api/v1', public_1.default);
 app.use('/api/v1/admin', admin_1.default);
+app.use('/api/v1/vendor', vendor_1.default);
 // Serve static files from root
 // We assume the server is running from server/dist or server/src
 // Root is two levels up from server/src or server/dist

@@ -13,7 +13,10 @@ export default defineConfig({
                 partnership: resolve(__dirname, 'pages/partnership.html'),
                 request: resolve(__dirname, 'pages/request-access.html'),
                 vehicle: resolve(__dirname, 'pages/vehicle.html'),
-                admin: resolve(__dirname, 'pages/admin.html'),
+                admin: resolve(__dirname, 'admin/index.html'),
+                portal: resolve(__dirname, 'portal/index.html'),
+                vendor: resolve(__dirname, 'vendor/index.html'),
+                links: resolve(__dirname, 'pages/links.html'),
             }
         }
     },
