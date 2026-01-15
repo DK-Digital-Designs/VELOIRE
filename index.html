@@ -4,16 +4,24 @@
     <meta charset="UTF-8">
     <title>VELOIRE — Exclusive Luxury Car Rentals</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="VELOIRE is a private, invitation-only luxury car rental platform. Experience supercars and elite SUVs with full privacy and concierge service.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="VELOIRE — Exclusive Luxury Car Rentals">
+    <meta property="og:description" content="Invitation-only luxury car rentals. Curated fleet, private quotations, and seamless delivery.">
+    <meta property="og:image" content="images/ferarri.webp">
+    <meta property="og:url" content="https://veloire.com">
+    <meta property="og:type" content="website">
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
-    <!-- Main theme (we'll toggle via data-theme, not CSS file swap) -->
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
 <body class="page">
 <header class="header">
     <div class="header-inner">
-        <div class="logo logo-gradient">VELOIRE</div>
+        <a href="index.html" class="logo logo-gradient" style="text-decoration: none;">VELOIRE</a>
         <nav class="nav">
             <a href="#fleet">Fleet</a>
             <a href="#owners">List Your Car</a>
@@ -28,7 +36,6 @@
                 Admin
             </a>
         </div>
-
     </div>
 </header>
 
@@ -67,7 +74,6 @@
         </div>
     </section>
 
-
     <!-- Fleet preview -->
     <section id="fleet" class="section section-alt fade">
         <div class="container section-header">
@@ -83,7 +89,8 @@
             </button>
         </div>
 
-        <div class="container fleet-grid">
+        <div class="container fleet-grid" id="public-fleet-grid">
+            <!-- Cards will be dynamically loaded or kept as static fallback for now -->
             <!-- Card 1 -->
             <article class="card card-fleet fade">
                 <img src="images/ferarri.webp" alt="White Ferrari in studio" class="card-img">
@@ -179,11 +186,15 @@
                 <form class="form" id="owner-enquiry-form">
                     <label>
                         Name
-                        <input type="text" name="ownerName" required>
+                        <input type="text" name="name" required>
                     </label>
                     <label>
                         Email
-                        <input type="email" name="ownerEmail" required>
+                        <input type="email" name="email" required>
+                    </label>
+                    <label>
+                        Phone
+                        <input type="tel" name="phone" required>
                     </label>
                     <label>
                         Vehicle (Make & Model)
@@ -191,7 +202,7 @@
                     </label>
                     <label>
                         Message
-                        <textarea name="ownerMessage" rows="3" placeholder="Tell us about your vehicle and storage situation." required></textarea>
+                        <textarea name="storageDescription" rows="3" placeholder="Tell us about your vehicle and storage situation." required></textarea>
                     </label>
                     <button type="submit" class="btn btn-primary btn-full">Submit Partner Enquiry</button>
                 </form>
@@ -199,7 +210,7 @@
         </div>
     </section>
 
-    <!-- How it works / Client-centric -->
+    <!-- How it works -->
     <section id="how-it-works" class="section section-alt fade">
         <div class="container section-header">
             <div>
@@ -215,23 +226,17 @@
             <article class="card fade">
                 <p class="step-number">01</p>
                 <h3>Pre-Approval</h3>
-                <p class="muted">
-                    Request access once. We privately vet your profile, driving history, and intended usage.
-                </p>
+                <p class="muted">Request access once. We privately vet your profile and driving history.</p>
             </article>
             <article class="card fade">
                 <p class="step-number">02</p>
                 <h3>Private Quotation</h3>
-                <p class="muted">
-                    Receive personalised rates, deposits, and mileage bands for the vehicles you qualify for.
-                </p>
+                <p class="muted">Receive personalised rates and deposits for your qualified vehicles.</p>
             </article>
             <article class="card fade">
                 <p class="step-number">03</p>
                 <h3>Seamless Delivery</h3>
-                <p class="muted">
-                    Digital contracts, secure payments, and coordinated delivery/collection direct from storage.
-                </p>
+                <p class="muted">Digital contracts and coordinated delivery direct from storage.</p>
             </article>
         </div>
     </section>
@@ -242,13 +247,12 @@
             <div>
                 <h2 class="section-title">Request Access</h2>
                 <p class="section-text">
-                    This is a pre-approval, not a booking. Every application is reviewed by a human —
-                    no instant approvals, no mass-market behaviour.
+                    Every application is reviewed by a human — no instant approvals.
                 </p>
                 <ul class="bullet-list">
-                    <li>Maximum 7-day rental per booking (renewable after inspection).</li>
-                    <li>No public pricing. All rates are communicated privately.</li>
-                    <li>Valid driver’s license and proof of ID required.</li>
+                    <li>Maximum 7-day rental per booking.</li>
+                    <li>No public pricing.</li>
+                    <li>Valid license required.</li>
                 </ul>
             </div>
             <div class="card">
@@ -256,61 +260,44 @@
                 <form class="form" data-rfa-form>
                     <label>
                         Full Name
-                        <input type="text" name="fullName" required>
+                        <input type="text" name="clientName" required>
                     </label>
                     <label>
                         Email
-                        <input type="email" name="email" required>
+                        <input type="email" name="clientEmail" required>
                     </label>
                     <label>
                         Phone / WhatsApp
                         <input type="tel" name="phone" required>
                     </label>
-                    <label>
-                        Desired Vehicle
-                        <select name="vehicle">
-                            <option value="portofino">Ferrari Portofino</option>
-                            <option value="g63">Mercedes-Benz G 63 AMG</option>
-                            <option value="m4">BMW M4 Competition</option>
-                            <option value="aventador">Lamborghini Aventador</option>
-                        </select>
-                    </label>
                     <div class="grid grid-2 compact-grid">
                         <label>
                             Start Date
-                            <input type="date" name="startDate" required>
+                            <input type="date" name="startDate">
                         </label>
                         <label>
                             End Date (Max 7 days)
-                            <input type="date" name="endDate" required>
+                            <input type="date" name="endDate">
                         </label>
                     </div>
                     <label>
                         Intended Use & Estimated Mileage
-                        <textarea name="usage" rows="3" required></textarea>
+                        <textarea name="usageDescription" rows="3"></textarea>
                     </label>
                     <button type="submit" class="btn btn-primary btn-full">Submit for Review</button>
-                    <p class="tiny muted">You will receive a private response — there are no instant approvals.</p>
+                    <p class="tiny muted">You will receive a private response.</p>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- About / footer pre-section -->
+    <!-- About -->
     <section id="about" class="section section-alt fade">
         <div class="container grid grid-2">
             <div>
                 <h2 class="section-title">About VELOIRE</h2>
                 <p class="section-text">
-                    Veloire Luxury Rentals is a platform-driven, asset-light business. We don’t own the cars —
-                    we orchestrate the experience between owners, storage partners, and carefully vetted clients.
-                </p>
-            </div>
-            <div class="card card-soft">
-                <p class="tiny muted">Why this matters</p>
-                <p class="muted">
-                    This model keeps the fleet flexible and current, reduces idle assets for owners and facilities,
-                    and makes once-off supercar experiences accessible to a tightly-controlled private list.
+                    We orchestrate the experience between owners, partners, and vetted clients.
                 </p>
             </div>
         </div>
@@ -321,14 +308,12 @@
     <div class="container footer-inner">
         <div>
             <p class="logo logo-gradient">VELOIRE</p>
-            <p class="muted tiny">
-                A private, invitation-only luxury car rental experience. No public pricing. No mass-market bookings.
-            </p>
+            <p class="muted tiny">Private Luxury Car Rentals.</p>
         </div>
         <div class="footer-newsletter">
             <p class="muted">Join the private list</p>
             <form id="newsletter-form" class="newsletter-form">
-                <input type="email" name="newsletterEmail" placeholder="Email address" required>
+                <input type="email" name="email" placeholder="Email address" required>
                 <button type="submit" class="btn btn-sm btn-outline">Request Early Access</button>
             </form>
         </div>

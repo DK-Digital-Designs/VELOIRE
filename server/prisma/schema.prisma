@@ -1,0 +1,127 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String         @id @default(uuid())
+  email         String         @unique
+  passwordHash  String
+  role          String         @default("CLIENT") // CLIENT | OWNER | ADMIN
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  deletedAt     DateTime?
+  clientProfile ClientProfile?
+  bookings      Booking[]
+  testimonials  Testimonial[]
+}
+
+model ClientProfile {
+  id                String    @id @default(uuid())
+  userId            String    @unique
+  user              User      @relation(fields: [userId], references: [id])
+  fullName          String
+  phone             String
+  status            String    @default("PENDING") // PENDING | APPROVED | BLOCKED
+  drivingBackground String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+}
+
+model Owner {
+  id                 String    @id @default(uuid())
+  userId             String?   @unique
+  name               String
+  email              String    @unique
+  phone              String
+  storageDescription String?
+  status             String    @default("PENDING") // PENDING | APPROVED
+  vehicles           Vehicle[]
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+  deletedAt          DateTime?
+}
+
+model Vehicle {
+  id               String            @id @default(uuid())
+  ownerId          String?
+  owner            Owner?            @relation(fields: [ownerId], references: [id])
+  name             String
+  slug             String            @unique
+  make             String
+  model            String
+  year             Int
+  summary          String
+  specsJson        String?           @default("{}")
+  status           String            @default("DRAFT") // DRAFT | LIVE | INSPECTION
+  heroImageUrl     String?           // Primary image URL
+  images           VehicleImage[]
+  bookings         Booking[]
+  testimonials     Testimonial[]
+  requestsForAccess RequestForAccess[]
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  deletedAt        DateTime?
+}
+
+model VehicleImage {
+  id         String   @id @default(uuid())
+  vehicleId  String
+  vehicle    Vehicle  @relation(fields: [vehicleId], references: [id])
+  url        String
+  isPrimary  Boolean  @default(false)
+  altText    String?
+  sortOrder  Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model RequestForAccess {
+  id               String    @id @default(uuid())
+  clientEmail      String
+  clientName       String
+  phone            String
+  vehicleId        String?
+  vehicle          Vehicle?  @relation(fields: [vehicleId], references: [id])
+  startDate        DateTime?
+  endDate          DateTime?
+  usageDescription String?
+  status           String    @default("PENDING") // PENDING | APPROVED | REJECTED
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  deletedAt        DateTime?
+}
+
+model Booking {
+  id        String    @id @default(uuid())
+  clientId  String
+  client    User      @relation(fields: [clientId], references: [id])
+  vehicleId String
+  vehicle   Vehicle   @relation(fields: [vehicleId], references: [id])
+  startDate DateTime
+  endDate   DateTime
+  status    String    @default("PROPOSED") // PROPOSED | CONFIRMED | COMPLETED | CANCELLED
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+}
+
+model Testimonial {
+  id        String    @id @default(uuid())
+  clientId  String
+  client    User      @relation(fields: [clientId], references: [id])
+  vehicleId String
+  vehicle   Vehicle   @relation(fields: [vehicleId], references: [id])
+  content   String
+  status    String    @default("DRAFT") // DRAFT | PUBLISHED
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+}
