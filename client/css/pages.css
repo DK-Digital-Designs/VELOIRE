@@ -1,0 +1,71 @@
+/* ==========================================================================
+   VELOIRE — Page Specifics
+   ========================================================================== */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-media {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, var(--bg) 0%, transparent 50%);
+}
+
+.hero-content {
+    z-index: 1;
+}
+
+.hero-copy {
+    max-width: 800px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+/* Dark Mode Sections */
+.section-dark {
+    background-color: var(--surface);
+}
+
+/* Bullet Lists */
+.bullet-list-minimal {
+    list-style: none;
+    margin-top: 2rem;
+}
+
+.bullet-list-minimal li {
+    padding-left: 2rem;
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.bullet-list-minimal li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.8rem;
+    width: 1rem;
+    height: 1px;
+    background: var(--accent);
+}

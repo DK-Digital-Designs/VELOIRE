@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicle Profile — VELOIRE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+
+    <!-- Vite Core Scripts -->
+    <script type="module" src="../js/api.js"></script>
+    <script type="module" src="../js/ui.js"></script>
+    <script type="module" src="../js/vehicle.js"></script>
+    <script type="module" src="../js/forms.js"></script>
+</head>
+
+<body class="page">
+    <header class="header">
+        <div class="header-inner container">
+            <a href="../index.html" class="logo logo-gradient">VELOIRE</a>
+            <nav class="nav">
+                <a href="fleet.html">Fleet</a>
+                <a href="partnership.html">Partnership</a>
+                <a href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="vehicle-template-root">
+        <!-- Minimal Hero -->
+        <section class="hero hero-sub">
+            <div class="hero-media" id="vehicle-hero-media"></div>
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <p class="eyebrow" id="vehicle-eyebrow">Vehicle Profile</p>
+                <h1 id="vehicle-name">——</h1>
+                <p class="hero-text muted" id="vehicle-description">...</p>
+                <div class="hero-actions">
+                    <a href="#request-access" class="btn btn-primary">Request Access</a>
+                    <a href="fleet.html" class="btn btn-ghost">Back to Fleet</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container grid grid-split">
+                <div>
+                    <h2>Specifications.</h2>
+                    <dl class="spec-list-minimal" id="vehicle-specs">
+                        <!-- Populated by vehicle.js -->
+                    </dl>
+                </div>
+                <div>
+                    <div class="card-premium">
+                        <h3>Bespoke Pricing (POA)</h3>
+                        <p class="muted tiny">
+                            Final rates are determined by your profile, intended mileage, and duration.
+                            Manual vetting only.
+                        </p>
+                        <ul class="bullet-list-minimal tiny">
+                            <li>Verified driving history required.</li>
+                            <li>Minimum 24h booking notice.</li>
+                            <li>Full concierge delivery.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="request-access" class="section section-alt">
+            <div class="container grid grid-split">
+                <div>
+                    <h2>Start Your <br>Application.</h2>
+                    <p class="muted">Complete the form to begin the private vetting process for this vehicle.</p>
+                </div>
+                <div class="card-premium">
+                    <form class="form" data-rfa-form id="vehicle-specific-rfa">
+                        <input type="hidden" name="vehicleId" id="vehicle-id-input">
+
+                        <label>Full Name</label>
+                        <input type="text" name="clientName" required>
+
+                        <label>Email</label>
+                        <input type="email" name="clientEmail" required>
+
+                        <div class="grid-2 compact-grid"
+                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                            <div>
+                                <label>Start Date</label>
+                                <input type="date" name="startDate" required>
+                            </div>
+                            <div>
+                                <label>End Date</label>
+                                <input type="date" name="endDate" required>
+                            </div>
+                        </div>
+
+                        <label>Usage Intent</label>
+                        <textarea name="usageDescription" rows="3" required></textarea>
+
+                        <button type="submit" class="btn btn-primary btn-full">Submit for Review</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="tiny muted uppercase tracking-widest">&copy; 2026 VELOIRE</p>
+        </div>
+    </footer>
+    <style>
+        .spec-list-minimal dt {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            margin-top: 1.5rem;
+        }
+
+        .spec-list-minimal dd {
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 0.5rem;
+        }
+    </style>
+</body>
+
+</html>
