@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const data = {
             ...payload,
-            usageDescription: `[Experience: ${payload.experience}] [Intent: ${payload.usageDescription}]`
+            usageDescription: `[Experience: ${payload.experience || 'N/A'}] [Intent: ${payload.usageDescription || 'N/A'}]`
         };
 
         ui.setBtnLoading(btn, true);

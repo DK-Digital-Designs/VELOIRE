@@ -101,4 +101,28 @@ router.get('/fleet', async (req, res, next) => {
         next(error);
     }
 });
+// GET /api/v1/fleet/:slug - Get single vehicle details
+router.get('/fleet/:slug', async (req, res, next) => {
+    try {
+        const vehicle = await prisma.vehicle.findFirst({
+            where: {
+                OR: [
+                    { id: req.params.slug },
+                    { slug: req.params.slug },
+                    { name: { contains: req.params.slug } }
+                ],
+                status: 'LIVE',
+                deletedAt: null
+            },
+            include: { images: true }
+        });
+        if (!vehicle) {
+            return (0, response_1.sendError)(res, 'Vehicle not found', 'ERR_NOT_FOUND', null, 404);
+        }
+        return (0, response_1.sendSuccess)(res, vehicle);
+    }
+    catch (error) {
+        next(error);
+    }
+});
 exports.default = router;
