@@ -19,7 +19,7 @@ app.use(helmet({
     contentSecurityPolicy: false, // For demo ease with external images
 }));
 app.use(cors({
-    origin: process.env.CORS_ORIGIN || true,
+    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
     credentials: true,
 }));
 app.use(express.json());

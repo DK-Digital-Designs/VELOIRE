@@ -106,10 +106,29 @@ router.get('/fleet', async (req, res, next) => {
     }
 });
 
+import { z } from 'zod';
+
+// Zod Schemas
+const vehicleSchema = z.object({
+    name: z.string().min(3),
+    make: z.string().min(2),
+    model: z.string().min(1),
+    year: z.coerce.number().min(1900).max(new Date().getFullYear() + 1),
+    slug: z.string().regex(/^[a-z0-9-]+$/),
+    summary: z.string().min(1, "Summary is required"),
+    heroImageUrl: z.string().url(),
+    specsJson: z.string().refine((val) => {
+        try { JSON.parse(val); return true; } catch { return false; }
+    }, { message: "Invalid JSON format" }).optional(),
+    status: z.enum(['DRAFT', 'LIVE', 'MAINTENANCE', 'INSPECTION', 'DISCONTINUED', 'UPCOMING']).default('LIVE')
+});
+
+const updateVehicleSchema = vehicleSchema.partial();
+
 // POST /api/v1/admin/fleet - Create new vehicle
 router.post('/fleet', async (req, res, next) => {
     try {
-        const { name, make, model, summary, heroImageUrl, specsJson, slug, year } = req.body;
+        const validated = vehicleSchema.parse(req.body);
 
         // Default owner for admin-created cars if no owner provided
         const defaultOwner = await prisma.owner.findFirst();
@@ -117,15 +136,7 @@ router.post('/fleet', async (req, res, next) => {
 
         const vehicle = await prisma.vehicle.create({
             data: {
-                name,
-                make,
-                model,
-                year: parseInt(year as string) || new Date().getFullYear(),
-                slug,
-                summary,
-                heroImageUrl,
-                specsJson,
-                status: 'LIVE',
+                ...validated,
                 ownerId: defaultOwner.id
             }
         });
@@ -134,14 +145,17 @@ router.post('/fleet', async (req, res, next) => {
         await prisma.vehicleImage.create({
             data: {
                 vehicleId: vehicle.id,
-                url: heroImageUrl,
+                url: validated.heroImageUrl,
                 isPrimary: true,
-                altText: name
+                altText: validated.name
             }
         });
 
         return sendSuccess(res, vehicle, 'Vehicle registered successfully', 201);
     } catch (error) {
+        if (error instanceof z.ZodError) {
+            return sendError(res, "Validation failed", "ERR_VALIDATION", error.errors, 400);
+        }
         next(error);
     }
 });
@@ -167,20 +181,18 @@ router.delete('/fleet/:id', async (req, res, next) => {
 router.patch('/fleet/:id', async (req, res, next) => {
     try {
         const { id } = req.params;
-        const data = req.body;
-
-        // Ensure year is a number if provided
-        if (data.year) data.year = parseInt(data.year as string);
+        const validated = updateVehicleSchema.parse(req.body);
 
         const vehicle = await prisma.vehicle.update({
             where: { id },
-            data: {
-                ...data
-            }
+            data: validated
         });
 
         return sendSuccess(res, vehicle, 'Vehicle updated successfully');
     } catch (error) {
+        if (error instanceof z.ZodError) {
+            return sendError(res, "Validation failed", "ERR_VALIDATION", error.errors, 400);
+        }
         next(error);
     }
 });

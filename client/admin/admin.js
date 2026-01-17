@@ -44,8 +44,10 @@ async function loadAdminRequests() {
                 <td>${new Date(req.startDate).toLocaleDateString()}</td>
                 <td><span class="status-pill status-${req.status.toLowerCase()}">${req.status}</span></td>
                 <td>
-                    <button class="btn btn-xs" onclick="window.updateRfaStatus('${req.id}', 'approve')">Approve</button>
-                    <button class="btn btn-xs btn-ghost" onclick="window.updateRfaStatus('${req.id}', 'reject')">Reject</button>
+                    ${req.status === 'PENDING' ? `
+                        <button class="btn btn-xs" onclick="window.updateRfaStatus('${req.id}', 'approve')">Approve</button>
+                        <button class="btn btn-xs btn-ghost" onclick="window.updateRfaStatus('${req.id}', 'reject')">Reject</button>
+                    ` : `<span class="tiny muted">Actioned</span>`}
                 </td>
             </tr>
         `).join('');
